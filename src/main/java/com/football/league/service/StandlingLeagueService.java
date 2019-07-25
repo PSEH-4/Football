@@ -45,7 +45,7 @@ public class StandlingLeagueService implements ServiceLeague{
 			throw new FootballException("Country does not exist in League");
 		}
 		
-		String leagueUrl="https://apifootball.com/api/?action=get_leagues&country_id=+"+country_Id+"&APIkey="+FootballLeagueConstants.APIKEY;
+		String leagueUrl="https://apifootball.com/api/?action=get_leagues&country_id="+country_Id+"&APIkey="+FootballLeagueConstants.APIKEY;
 		ResponseEntity<League[]> responseLeagueList=resttemplate.getForEntity(leagueUrl, League[].class);
 		for(League league:responseLeagueList.getBody())
 		{

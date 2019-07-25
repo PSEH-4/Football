@@ -1,5 +1,7 @@
 package com.footbal.league.controller;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +27,7 @@ public class FootballLeagueStandingTest {
 	
 	@Mock
 	StandingLeagueResponse standingmodel;
+	
 	@Test
 	public void ServiceLeagueTest()
 	{
@@ -32,7 +35,8 @@ public class FootballLeagueStandingTest {
 		list.add(standingmodel);
 		
 		Mockito.when(standingservice.getStandingLeagueData("abc")).thenReturn(list);
-		controller.getleaguestandings("def");
+		int val=controller.getleaguestandings("def").getStatusCodeValue();
+		assertEquals(200,val);
 		
 	}
 
